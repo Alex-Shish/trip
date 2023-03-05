@@ -1,24 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
 
 function App() {
+  const [tank, setTank] = useState(0)
+  const [mpg, setMpg] = useState(0)
+  const [distance, setDistance] = useState(0)
+  const [result, setResult] = useState('')
+  const onTankChange = (event) => {
+    setTank(event.target.value)
+      onCalculate()
+  }
+  const onMpgChange = (event) => {
+    setMpg(event.target.value)
+      onCalculate()
+  }
+  const onDistanceChange = (event) => {
+    setDistance(event.target.value)
+      onCalculate()
+  }
+  const onCalculate = () => {
+    const carDistance = tank * mpg
+      if (carDistance > distance) {
+          setResult('Enough fuel')
+      } else {
+          setResult('Not enough fuel')
+      }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div>
+      <label form="tank">Tank, gallons</label>
+      <input value={tank} onChange={onTankChange} name='tank' type='number'/>
+        </div>
+        <div>
+      <label form="mpg">MPG, miles per gallon</label>
+      <input value={mpg} onChange={onMpgChange} name='mpg' type='number'/>
+        </div>
+        <div>
+      <label form="distance">Distance, miles</label>
+      <input value={distance} onChange={onDistanceChange} name='distance' type='number'/>
+        </div>
+<button onClick={onCalculate}>Calculate</button>
+        {result}
     </div>
   );
 }

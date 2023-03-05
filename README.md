@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# TASK
+## Исходные данные:
+* Емкость бака в галлонах
+* Расход топлива в милях на галлон
+* Расстояние до АЗС
+## Выходные данные: 
+* доедет или нет автомобиль до заправки
